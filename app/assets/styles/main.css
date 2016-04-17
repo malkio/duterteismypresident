@@ -6,9 +6,19 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
-#canvas {
-  height: 100%;
-  width: 100%; }
+#workspace {
+  position: relative;
+  height: 1000px; }
+  #workspace .background-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1; }
+  #workspace .user-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99; }
 
 body {
   background-color: green; }
