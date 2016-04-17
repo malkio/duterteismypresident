@@ -37,7 +37,7 @@
             var workspace = {
             	initialize: function() {
 
-		        	interact('.crop-user-image')
+		        	interact('#workspace .crop-user-image')
 						  .draggable({
 						    onmove: window.dragMoveListener
 						  })
@@ -82,16 +82,16 @@
             		$('.crop-user-image').eraser('disable');
             	},
             	dragEnd: function() {
-            		interact('.crop-user-image').draggable(false);
+            		interact('#workspace .crop-user-image').draggable(false);
             		//interact('.crop-user-image').resizeable(false);
             	},
             	dragStart: function(){
-            		interact('.crop-user-image').draggable(true);
+            		interact('#workspace .crop-user-image').draggable(true);
             		//interact('.crop-user-image').resizeable(true);
             	}
             };
 
-            //workspace.initialize();
+            workspace.initialize();
              // this is used later in the resizing and gesture demos
 
 
@@ -135,6 +135,23 @@
 			$('#btn-crop-done').on('click', function(){
 			 	$('.crop-user-image').appendTo('#workspace');
 			});
+
+			function downloadCanvas(link, canvasId, filename) {
+				    link.href = document.getElementById(canvasId).toDataURL();
+				    link.download = filename;
+				}
+
+			$('.btn-save').on('click',function(){
+				var bg = $("#workspace .background-image").get(0);
+				var image = $("#workspace .crop-user-image").get(0);
+				var ctx = document.getElementById('workspace2').getContext('2d');
+
+
+		        ctx.drawImage(bg, 0,0);
+		        ctx.drawImage(image, 0,0);
+		        downloadCanvas(this, 'workspace2', 'test.png');
+			});
+
 
 			 $('#upload').on('change', function(){
             	 if (this.files && this.files[0]) {

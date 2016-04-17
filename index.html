@@ -55,7 +55,7 @@
                          <a href="#" class="btn btn-default btn-brush-md" data-brush-size="40">MEDIUM</a>
                          <a href="#" class="btn btn-default btn-brush-sm" data-brush-size="20">SMALL</a>
                     </div>
-                     <input type='file' id="upload" />
+                     <input type='file' class="input form-control" id="upload" />
                      <a href="#" id="btn-crop-done" class="btn btn-primary btn-lg">PROCEED TO STEP 2</a>
                </div>
                 <div class="col-sm-12">
@@ -67,18 +67,18 @@
                <h2>ADJUST SIZE AND POSITION</h2>
                <div class="btn btn-group btn-group-lg btn-justify">
                          <a href="#" class="btn btn-default btn-move">MOVE</a>
-                         <a href="#" class="btn btn-default btn-crop">CROP</a>
-                         <a href="#" class="btn btn-default btn-save">SAVE</a>
+                         <a href="#" class="btn btn-primary btn-save">SAVE</a>
                </div>
                <div id="workspace">
-                         <img src="https://raw.githubusercontent.com/malkio/duterteismypresident/gh-pages/assets/images/placeholder2.jpg" class=" background-image img-responsive">
+                         <img  crossorigin="anonymous" src="https://raw.githubusercontent.com/malkio/duterteismypresident/gh-pages/assets/images/placeholder2.jpg" class=" background-image img-responsive">
                </div>
+               <canvas id="workspace2" width="540" height="540"/>
           </section>
 
 
           <div class="row">
                <div class="col-sm-12">
-                    <div class="row">
+                    <div class="row" id="export">
                    </div>
                </div>
           </div>
