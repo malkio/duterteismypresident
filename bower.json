@@ -19,6 +19,7 @@
     "bootstrap-sass": "^3.3.6"
   },
   "dependencies": {
-    "jquery-eraser": "^0.5.2"
+    "jquery-eraser": "^0.5.2",
+    "interact": "^1.2.6"
   }
 }
