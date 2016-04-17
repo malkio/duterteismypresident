@@ -50,16 +50,16 @@
           <section id="step1">
                <div class="col-sm-12">
                     <h1>REMOVE BACKGROUND</h1>
-                    <div class="btn btn-group btn-group-lg btn-justify">
-                         <a href="#" class="btn btn-default btn-move">BIG BRUSH</a>
-                         <a href="#" class="btn btn-default btn-crop">MEDIUM</a>
-                         <a href="#" class="btn btn-default btn-save">SMALL</a>
+                    <div id="btn-crop" class="btn btn-group btn-group-lg btn-justify">
+                         <a href="#" class="btn btn-default btn-brush-bg" data-brush-size="50">BIG BRUSH</a>
+                         <a href="#" class="btn btn-default btn-brush-md" data-brush-size="40">MEDIUM</a>
+                         <a href="#" class="btn btn-default btn-brush-sm" data-brush-size="20">SMALL</a>
                     </div>
-                     <a href="#" class="btn btn-primary btn-lg">PROCEED TO STEP 2</a>
+                     <input type='file' id="upload" />
+                     <a href="#" id="btn-crop-done" class="btn btn-primary btn-lg">PROCEED TO STEP 2</a>
                </div>
                 <div class="col-sm-12">
-                    <img src="http://portra.wpshower.com/wp-content/uploads/2014/03/martin-schoeller-barack-obama-portrait-up-close-and-personal.jpg"
-                    class="grayscale crop-user-image">
+                    <img id="imageCanvas" class="grayscale crop-user-image">
                </div>
 
           </section>

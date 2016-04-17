@@ -24,12 +24,16 @@ section {
     width: 100%;
     height: 100%;
     z-index: 1; }
-  #workspace .user-image {
+  #workspace .crop-user-image {
     position: absolute;
     left: 0;
     top: 0;
     height: 526px;
     z-index: 99; }
+
+#imageCanvas {
+  height: 526px;
+  width: 526px; }
 
 body {
   background-color: gray; }

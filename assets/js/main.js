@@ -15,13 +15,29 @@
     target.setAttribute('data-y', y);
   }
 
+  function cloneCanvas(oldCanvas) {
+
+    //create a new canvas
+    var newCanvas = document.createElement('canvas');
+    var context = newCanvas.getContext('2d');
+
+    //set dimensions
+    newCanvas.width = oldCanvas.width;
+    newCanvas.height = oldCanvas.height;
+    //apply the old canvas to the new one
+    context.drawImage(oldCanvas, 0, 0);
+
+    //return the new canvas
+    return newCanvas;
+}
+
   // this is used later in the resizing and gesture demos
   window.dragMoveListener = dragMoveListener;
 
             var workspace = {
             	initialize: function() {
 
-		        	interact('.user-image')
+		        	interact('.crop-user-image')
 						  .draggable({
 						    onmove: window.dragMoveListener
 						  })
@@ -50,29 +66,32 @@
 						    target.textContent = Math.round(event.rect.width) + '×' + Math.round(event.rect.height);
 						  });
             	},
-            	eraserStart: function(){
-        			$('.user-image').eraser({
+            	eraserStart: function(size){
+            		var brushSize = 20;
+            		if (size !== 'undefined') brushSize = size;
+
+        			$('.crop-user-image').eraser({
 	          			progressFunction: function(p) {
 	            			$('#progress').html(Math.round(p*100)+'%');
 	          			}
 	        		});
-        			$('.user-image').eraser('enable');
+        			$('.crop-user-image').eraser('enable');
+        			$('.crop-user-image').eraser('size',brushSize);
             	},
             	eraserEnd: function(){
-            		$('.user-image').eraser('disable');
+            		$('.crop-user-image').eraser('disable');
             	},
             	dragEnd: function() {
-            		interact('.user-image').draggable(false);
-            		//interact('.user-image').resizeable(false);
+            		interact('.crop-user-image').draggable(false);
+            		//interact('.crop-user-image').resizeable(false);
             	},
             	dragStart: function(){
-            		interact('.user-image').draggable(true);
-            		//interact('.user-image').resizeable(true);
+            		interact('.crop-user-image').draggable(true);
+            		//interact('.crop-user-image').resizeable(true);
             	}
             };
 
-            workspace.initialize();
-            workspace.eraserEnd();
+            //workspace.initialize();
              // this is used later in the resizing and gesture demos
 
 
@@ -83,7 +102,7 @@
             	move = false;
             	workspace.eraserEnd();
             	crop = false;
-            	$(".btn-group .btn").removeClass('active');
+            	$(".btn").removeClass('active');
             }
  			$('.btn-move').on('click', function(){
  				if( !move ) {
@@ -98,11 +117,12 @@
  					workspace.dragEnd();
  				}
  			});
- 			$('.btn-crop').on('click', function(){
+ 			$('#btn-crop').on('click', '.btn', function(){
  				if( !crop ){
  					beforeStartAction();
  					$(this).addClass('active');
- 					workspace.eraserStart();
+ 					var size = $(this).data('brush-size');
+ 					workspace.eraserStart(size);
  					crop = true;
  				}
  				else {
@@ -112,7 +132,20 @@
  				}
  			});
 
-// this is used later in the resizing and gesture demos
+			$('#btn-crop-done').on('click', function(){
+			 	$('.crop-user-image').appendTo('#workspace');
+			});
 
+			 $('#upload').on('change', function(){
+            	 if (this.files && this.files[0]) {
+			        var reader = new FileReader();
+
+			        reader.onload = function (e) {
+			            $('#imageCanvas').attr('src', e.target.result);
+			        };
+
+			        reader.readAsDataURL(this.files[0]);
+			    }
+            });
 
 }(jQuery, window, document, undefined));
