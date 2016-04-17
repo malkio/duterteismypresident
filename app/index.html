@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="./assets/styles/normalize.css">
 
 		<link rel="stylesheet" type="text/css" href="./assets/components/bootstrap-sass/assets/stylesheets/bootstrap.css">
+          <link rel="stylesheet" type="text/css" href="./assets/components/gray/css/gray.min.css">
 
         <link rel="stylesheet" href="./assets/styles/main.css">
         <script src="./assets/js/vendor/modernizr-2.8.3.min.js"></script>
@@ -64,12 +65,25 @@
                          <a href="#" class="btn btn-default btn-crop">CROP</a>
                          <a href="#" class="btn btn-default btn-save">SAVE</a>
                     </div>
-                   <div id="workspace">
-                         <img src="./assets/images/placeholder.jpg" class="user-image" style="width:50%;">
-                         <img src="./assets/images/placeholder.jpg" class="background-image img-responsive">
+                    <div class="row">
+                        <div id="workspace">
+                              <div class="col-sm-6">
+                                   <img src="./assets/images/placeholder.jpg"
+                                   class="grayscale user-image">
+                              </div>
+                              <div class="col-sm-6">
+                                   <div id="caption" class=" pull-right">
+                                        <h1>I'm a <span class="filipino">Filipino</span></h1>
+                                        <h1>&amp; my President</h1>
+                                        <h1>is<span class="duterte">DUTERTE</span></h1>
+                                        <br>
+                                   </div>
+                              </div>
+
+                              <img src="./assets/images/placeholder2.jpg" class=" background-image img-responsive">
+                        </div>
                    </div>
                </div>
-               relly?
           </div>
           <hr>
 
@@ -83,6 +97,7 @@
 		<script src="./assets/components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
           <script type="text/javascript" src="./assets/components/jquery-eraser/jquery.eraser.js"></script>
           <script type="text/javascript" src="./assets/components/interact/dist/interact.min.js"></script>
+          <script type="text/javascript" src="./assets/components/gray/js/jquery.gray.min.js"></script>
         <script src="./assets/js/main.js"></script>
         <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
         <script>

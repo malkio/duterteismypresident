@@ -8,7 +8,10 @@
    ========================================================================== */
 #workspace {
   position: relative;
-  height: 1000px; }
+  height: 1000px;
+  background-color: #fff; }
+  #workspace > div {
+    height: 100%; }
   #workspace .background-image {
     position: absolute;
     left: 0;
@@ -18,7 +21,21 @@
     position: absolute;
     left: 0;
     top: 0;
+    width: 100%;
     z-index: 99; }
+
+#caption {
+  padding: 2% 0 0 0;
+  text-align: left;
+  width: 100%;
+  z-index: 100; }
+
+.filipino {
+  color: blue; }
+
+.duterte {
+  color: red;
+  font-size: 3.5em; }
 
 body {
   background-color: green; }

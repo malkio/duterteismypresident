@@ -11,10 +11,32 @@
  #workspace{
     position:relative;
     height:1000px;
+    background-color: #fff;
 
-    .background-image{ position: absolute; left:0; top: 0; z-index:1; }
-    .user-image{ position: absolute; left:0; top: 0; z-index: 99;}
+    > div { height: 100%; }
+   .background-image{ position: absolute; left:0; top: 0; z-index:1; }
+   .user-image{
+        position: absolute;
+        left:0;
+        top: 0;
+        width:100%;
+        z-index: 99;
+    }
  }
+ #caption {
+    padding: 2% 0 0 0;
+    text-align: left;
+    width: 100%;
+    z-index: 100;
+ }
+ .filipino {
+    color:blue;
+ }
+ .duterte {
+    color:red;
+    font-size:3.5em;
+ }
+
  body {
     background-color: green;
  };
