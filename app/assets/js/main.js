@@ -4,8 +4,21 @@
 				initialize: function(){
 					$('#canvas').attr('width', "1200px");
 					$('#canvas').attr('height', "1200px");
+					this.drawBackground();
+				},
+				drawBackground: function(){
+					var img = new Image();
+					img.src = "./assets/images/placeholder.jpg";
+
+					var canvas = $('#canvas')[0];
+                	var context = canvas.getContext('2d');
+                	img.onload = function(){
+					    context.drawImage( img, 0,0 );
+					};
+
 				}
 			};
+
 			canvas.initialize();
 
 
