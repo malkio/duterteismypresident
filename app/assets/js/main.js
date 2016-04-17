@@ -49,15 +49,15 @@
             //$('.user-image').eraser("enabled");
 
             var workspace = {
-            	erase: function(){
-        			$('.user-image').eraser({
+            	initialize: function() {
+            		$('.user-image').eraser({
 		          		progressFunction: function(p) {
 		            		$('#progress').html(Math.round(p*100)+'%');
 		          		}
 		        	});
-            	},
-            	drag: function(){
-            		// target elements with the "draggable" class
+
+		        	// start interact
+					// target elements with the "draggable" class
 					  function dragMoveListener (event) {
 					    var target = event.target,
 					        // keep the dragged position in the data-x/data-y attributes
@@ -100,26 +100,57 @@
 					    //                  event.dy * event.dy)|0) + 'px');
 					     }
 					  });
+		        	// end interact
+            	},
+            	eraserStart: function(){
+        			$('.user-image').eraser('enable');
+            	},
+            	eraserEnd: function(){
+            		$('.user-image').eraser('disable');
+            	},
+            	dragEnd: function() {
+            		interact('.user-image').draggable(false);
+            	},
+            	dragStart: function(){
+            		interact('.user-image').draggable(true);
             	}
             };
 
+            workspace.initialize();
             var move = false;
+            var crop = false;
+            function beforeStartAction (){
+            	workspace.dragEnd();
+            	move = false;
+            	workspace.eraserEnd();
+            	crop = false;
+            }
  			$('.btn-move').on('click', function(){
  				if( !move ) {
+ 					beforeStartAction();
  					$(this).addClass('active');
- 					workspace.drag();
+ 					workspace.dragStart();
  					move = true;
  				}
  				else {
  					$(this).removeClass('active');
  					move = false;
- 					interact('.user-image').draggable(false);
+ 					workspace.dragEnd();
 
  				}
  			});
  			$('.btn-crop').on('click', function(){
- 				workspace.erase();
- 				console.log('erase mode');
+ 				if( !crop ){
+ 					beforeStartAction();
+ 					$(this).addClass('active');
+ 					workspace.eraserStart();
+ 					crop = true;
+ 				}
+ 				else {
+ 					$(this).addClass('active');
+ 					workspace.eraserEnd();
+ 					crop = false;
+ 				}
  			});
 
 // this is used later in the resizing and gesture demos
