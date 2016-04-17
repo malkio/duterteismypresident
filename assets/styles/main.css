@@ -9,10 +9,13 @@
 #page {
   padding-bottom: 200px; }
 
+section {
+  height: 100vh; }
+
 #workspace {
   position: relative;
-  height: 1000px;
-  width: 1000px;
+  height: 526px;
+  width: 526px;
   background-color: #fff; }
   #workspace .background-image {
     position: absolute;
@@ -25,22 +28,10 @@
     position: absolute;
     left: 0;
     top: 0;
+    height: 526px;
     z-index: 99; }
 
-#caption {
-  padding: 2% 0 0 0;
-  text-align: left;
-  width: 100%;
-  z-index: 100; }
-
-.filipino {
-  color: blue; }
-
-.duterte {
-  color: red;
-  font-size: 3.5em; }
-
 body {
-  background-color: green; }
+  background-color: gray; }
 
 /*# sourceMappingURL=main.css.map */
