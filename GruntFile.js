@@ -81,7 +81,28 @@ module.exports = function(grunt){
 				},
 				src: [globalconfig.htmlpath]
 			}
-		}
+		},
+
+		// Release
+		copy: {
+			release: {
+				files: [
+					// COPY STYLESHEETS
+      				//{ expand: true, cwd: 'app/assets/styles/', src: '**', dest: 'release/stylesheets/' },
+     				// COPY HTML
+      				{
+      					expand: true,
+      					cwd: 'app/',
+      					src: '**',
+      					dest: 'release/',
+      				},
+      				// COPY JS
+      				//{ expand: true, cwd: 'app/assets/js/', src: '**', 'dest': 'release/js/'},
+      				// COPY FONT /IMAGES / COMPONENTS
+      				//{ expand: true, cwd: 'app/assets/', src: ['components', 'images', 'fonts'], dest: 'release/'}
+				]
+			}
+		},
 	});
 
 	// IMPORT module
@@ -95,6 +116,12 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	// set default task(s)
+	grunt.registerTask('build:release', [
+		'htmlhint',
+		'jshint',
+		'sass:dist',
+		'copy:release'
+		]);
 	grunt.registerTask('build', [
 		'htmlhint',
 		'jshint',

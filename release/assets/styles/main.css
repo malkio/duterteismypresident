@@ -1,0 +1,43 @@
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+#workspace {
+  position: relative;
+  height: 1000px;
+  background-color: #fff; }
+  #workspace > div {
+    height: 100%; }
+  #workspace .background-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1; }
+  #workspace .user-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 99; }
+
+#caption {
+  padding: 2% 0 0 0;
+  text-align: left;
+  width: 100%;
+  z-index: 100; }
+
+.filipino {
+  color: blue; }
+
+.duterte {
+  color: red;
+  font-size: 3.5em; }
+
+body {
+  background-color: green; }
+
+/*# sourceMappingURL=main.css.map */
