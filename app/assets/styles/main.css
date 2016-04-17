@@ -9,6 +9,7 @@
 #workspace {
   position: relative;
   height: 1000px;
+  width: 1000px;
   background-color: #fff; }
   #workspace > div {
     height: 100%; }
@@ -16,6 +17,8 @@
     position: absolute;
     left: 0;
     top: 0;
+    width: 100%;
+    height: 100%;
     z-index: 1; }
   #workspace .user-image {
     position: absolute;
