@@ -1,0 +1,37 @@
+(function($, window, document, undefined){
+
+			var canvas = {
+				initialize: function(){
+					$('#canvas').attr('width', "1200px");
+					$('#canvas').attr('height', "1200px");
+				}
+			};
+			canvas.initialize();
+
+
+            $('#file-input').change(function(e) {
+                var file = e.target.files[0],
+                    imageType = /image.*/;
+
+                if (!file.type.match(imageType))
+                    return;
+
+                var reader = new FileReader();
+                reader.onload = fileOnload;
+                reader.readAsDataURL(file);
+            });
+
+            function fileOnload(e) {
+                var $img = $('<img>', { src: e.target.result });
+                var canvas = $('#canvas')[0];
+                var context = canvas.getContext('2d');
+
+                $img.load(function() {
+                    context.drawImage(this, 0, 0);
+                });
+            }
+
+
+
+
+}(jQuery, window, document, undefined));
