@@ -7,38 +7,174 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
-#page {
-    padding-bottom: 200px;
+@import 'vendor';
+$varblue: #1919FF;
+
+.navbar {
+    small { font-size:0.6em; color: red;}
 }
 section{
     height:100vh;
-}
- #workspace{
+    &#content{
+        background-image: url('../images/bg2.jpg');
+        background-repeat: repeat;
+        background-position:center center;
+        background-size: 20%;
+        >nav{
+           background-color: rgba(0,0,0,1.91);
+           min-height:5vh;
+        }
+        >#workspace {
+            background-color: rgba(0,0,0,0.87);
+            height:100vh;
+            padding-top: 150px;
+        }
 
-    position:relative;
-    height:526px;
-    width:526px;
-    background-color: #fff;
-
-   .background-image{
-        position: absolute;
-        left:0;
-        top: 0;
-        width:100%;
-        height:100%;
-        z-index:1; }
-   .crop-user-image{
-        position: absolute;
-        left:0;
-        top: 0;
-        height:526px;
-        z-index: 99;
     }
- }
- #imageCanvas{
-    height:526px;
-    width:526px;
- }
- body {
-    background-color: gray;
- }
+
+
+    .step-content{
+        position: relative;
+        text-align:center;
+        height:100%;
+        padding-top:40px;
+        .title{
+            position:absolute;
+            top: -4%;
+            width: 100%;
+            color: #fff;
+        }
+
+        .controls{
+            position:absolute;
+            bottom:2%;
+            width: 100%;
+            z-index:100;
+        }
+        .box {
+            position:relative;
+            border-radius: 3px;
+            border: 2px solid #999;
+            margin: 0 auto;
+        }
+        .tool-box {
+            min-width:300px;
+            max-width:600px;
+            background-color:#333;
+            position:relative;
+            margin: 0 auto;
+        }
+    }
+    #s1{
+        p{
+            padding:20px 0 0 0;
+        }
+        #uploadBtn{ display:inline-block; }
+        #upload-box{
+            height:300px;
+            width:300px;
+            padding:80px;
+            text-align:center;
+            font-size:8em;
+            color:#fff;
+            position:relative;
+            img{ height:100%; width: 100%; position: absolute; top:0; left:0; }
+            &:hover{
+                color: $varblue;
+                background-color: #222;
+                border-color: $varblue;
+            }
+
+        }
+    }
+    #s2{
+        #erase-box{
+            height:600px;
+            width: 600px;
+            position: relative;
+            >img {
+                width: 100%;
+                height:100%;
+            }
+        }
+    }
+    #s3{
+        #resize-box{
+            min-height:600px;
+            max-height:600px;
+            max-width: 600px;
+            >img{
+                width:100%;
+                height:100%;
+                position:absolute;
+                top:0;
+                left:0;
+                z-index:1;
+            }
+            >canvas{
+                width: 100%;
+                height: 100%;
+                position:absolute;
+                top:0;
+                left:0;
+                z-index:99;
+            }
+            > canvas#output{
+                z-index:0;
+            }
+        }
+    }
+
+}
+
+
+
+input{
+    background-color:transparent;
+    border:none;
+    border-bottom: 2px solid #fff;
+    border-radius: 0 !important;
+    color:#fff;
+    font-weight:bold;
+    &:active, &:focus{
+        outline:none;
+    }
+}
+.txt-lg{ font-size:2em; }
+.txt-md{ font-size:1.5em }
+.txt-sm { font-size: .9em}
+
+
+
+.btn, .btn-group{
+    border:none;
+    border-radius:0;
+}
+
+
+ // #workspace{
+
+ //    position:relative;
+ //    height:526px;
+ //    width:526px;
+ //    background-color: #fff;
+
+ //   .background-image{
+ //        position: absolute;
+ //        left:0;
+ //        top: 0;
+ //        width:100%;
+ //        height:100%;
+ //        z-index:1; }
+ //   .crop-user-image{
+ //        position: absolute;
+ //        left:0;
+ //        top: 0;
+ //        height:526px;
+ //        z-index: 99;
+ //    }
+ // }
+ // #imageCanvas{
+ //    height:526px;
+ //    width:526px;
+ // }
