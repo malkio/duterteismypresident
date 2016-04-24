@@ -12939,10 +12939,11 @@ var s3 = (function(){
 
 
 	        	ctx.drawImage(bg, 0,0, 600, 600);
-	        	ctx.font = "30px Arial";
+	        	ctx.font = "15px Arial";
 	        	ctx.fillStyle = 'black';
-			ctx.strokeText(userData.userStatus,360,430);
-			ctx.strokeText(userData.userName,360,400);
+			ctx.fillText(userData.userStatus,360,420);
+			ctx.font = "24px Arial";
+			ctx.fillText(userData.userName,360,390);
 
 	        	ctx.drawImage(image, imageX,imageY, imageWidth, imageHeight);
 	        downloadCanvas(this, 'output', 'test.png');
