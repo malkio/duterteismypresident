@@ -1,3 +1,7 @@
+
+//# sourceMappingURL=libs/backendless.min.map
+
+
 // (function($, window, document, undefined){
 //  function dragMoveListener (event) {
 //     var target = event.target,
@@ -157,6 +161,13 @@
 
 
 // }(jQuery, window, document, undefined));
+
+
+var APPLICATION_ID = 'CB821998-CA5A-D215-FF6C-60EF2ADD3200',
+    SECRET_KEY = '22C19CCB-98AB-EDC0-FFB4-708F8E999300',
+    VERSION = 'v1'; //default application version;
+    Backendless.initApp(APPLICATION_ID, SECRET_KEY, VERSION);
+
 
     var currentSlideIndex = 0;
     var $stepContents = $('.step-content');

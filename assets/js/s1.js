@@ -17,6 +17,7 @@ var s1 = (function(){
 		});
 		$parentContainer.find('#uploadInput').on('change', function(){
 		     setUserImage(this, $parentContainer.find('#upload-box >img') );
+			$parentContainer.find('.next').removeClass('disabled').addClass('btn-success');
 		});
 
 		// Next Slide Listener

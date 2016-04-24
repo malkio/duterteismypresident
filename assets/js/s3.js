@@ -54,6 +54,7 @@ var s3 = (function(){
 
 
 		$('#downloadBtn').on('click',function(){
+			saveSupporter();
 			var bg = $("#s3 #placeholder").get(0);
 		//	convertToGrayScale();
 			var image = $("#s3 canvas#eraseImg").get(0);
@@ -78,6 +79,24 @@ var s3 = (function(){
 	        downloadCanvas(this, 'output', 'test.png');
 		});
 
+	}
+
+	function saveSupporter(){
+		function Supporter(args) {
+		    args = args || {};
+		    this.name = args.name || "";
+		    this.status = args.age || "";
+		}
+		var supporterObject = new Supporter({
+			name: userData.userName,
+			status: userData.userStatus,
+		});
+		Backendless.Persistence.of( Supporter ).save( supporterObject, new Backendless.Async(
+			function(){
+			console.log("Du30 for President!");
+		}, function(){
+			console.log("Oops");
+		} ) );
 	}
 
 	function convertToGrayScale(){
