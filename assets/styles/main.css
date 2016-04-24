@@ -735,7 +735,7 @@ footer .footer-below {
   color: red; }
 
 section {
-  height: 100vh; }
+  min-height: 120vh; }
   section#content {
     background-image: url("../images/bg2.jpg");
     background-repeat: repeat;
@@ -746,7 +746,7 @@ section {
       min-height: 5vh; }
     section#content > #workspace {
       background-color: rgba(0, 0, 0, 0.87);
-      height: 100vh;
+      min-height: 120vh;
       padding-top: 150px; }
   section .step-content {
     position: relative;
@@ -759,8 +759,8 @@ section {
       width: 100%;
       color: #fff; }
     section .step-content .controls {
-      position: absolute;
-      bottom: 2%;
+      position: relative;
+      padding-top: 50px;
       width: 100%;
       z-index: 100; }
     section .step-content .box {

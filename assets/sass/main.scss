@@ -16,7 +16,7 @@ $varblue: #1919FF;
     small { font-size:0.6em; color: red;}
 }
 section{
-    height:100vh;
+    min-height:120vh;
     &#content{
         background-image: url('../images/bg2.jpg');
         background-repeat: repeat;
@@ -28,7 +28,7 @@ section{
         }
         >#workspace {
             background-color: rgba(0,0,0,0.87);
-            height:100vh;
+            min-height:120vh;
             padding-top: 150px;
         }
 
@@ -48,8 +48,8 @@ section{
         }
 
         .controls{
-            position:absolute;
-            bottom:2%;
+            position:relative;
+            padding-top:50px;
             width: 100%;
             z-index:100;
         }
